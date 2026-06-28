@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chaintrace.org/schemas/proof.schema.json",
+  "title": "ChainTrace Proof",
+  "description": "A minimal proof object for anchoring evidence hashes and references.",
+  "type": "object",
+  "required": [
+    "proofType",
+    "fileHash",
+    "submitter",
+    "timestamp"
+  ],
+  "properties": {
+    "proofType": {
+      "type": "string",
+      "description": "Type of proof, such as product, shipment, invoice, inspection, delivery, or acceptance."
+    },
+    "fileHash": {
+      "type": "string",
+      "description": "Cryptographic hash of the evidence file or canonical evidence payload."
+    },
+    "hashAlgorithm": {
+      "type": "string",
+      "default": "SHA-256"
+    },
+    "uri": {
+      "type": "string",
+      "description": "Optional URI or CID pointing to off-chain evidence."
+    },
+    "submitter": {
+      "type": "string",
+      "description": "Address, DID, or identifier of the submitting actor."
+    },
+    "timestamp": {
+      "type": "integer",
+      "description": "Unix timestamp for proof creation or anchoring."
+    },
+    "batchId": {
+      "type": "string",
+      "description": "Optional batch, shipment, order, or trade object identifier."
+    },
+    "metadataHash": {
+      "type": "string",
+      "description": "Optional hash of private or extended metadata."
+    },
+    "signature": {
+      "type": "string",
+      "description": "Optional signature by the submitting actor."
+    }
+  },
+  "additionalProperties": true
+}
